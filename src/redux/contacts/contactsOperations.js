@@ -95,8 +95,9 @@ export const fetchContactsFromMmockapiIo = createAsyncThunk(
             const { data } = await axios.get('http://localhost:3000/api/contacts');
             // const { data } = await axios.get('http://192.168.0.3:3000/api/contacts');
             console.log("contacts/fetchContactsFromMmockapiIo==>data:", data); //!
-            console.log("contacts/fetchContactsFromMmockapiIo==>data.users:", data.users); //!
-            return data;
+            console.log("contacts/fetchContactsFromMmockapiIo==>data.contacts:", data.contacts); //!
+            // return data;
+            return data.contacts;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 404" ? "Нет такой коллекции пользователей" : error.message}`, { position: "top-center", autoClose: 2000 });
