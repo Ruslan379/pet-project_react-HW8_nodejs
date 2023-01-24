@@ -2,7 +2,7 @@
   "name": "pet-project-react-react-hw8_nodejs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ruslan379.github.io/pet-project_react-HW8_nodejs/",
+  "homepage": "https://Ruslan379.github.io/pet-project_react-hw8_nodejs/",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
