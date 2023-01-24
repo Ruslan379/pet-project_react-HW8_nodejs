@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/pet-project_react-HW8_nodejs/static/css/main.7acaea2f.css",
-    "main.js": "/pet-project_react-HW8_nodejs/static/js/main.07d3183d.js",
-    "index.html": "/pet-project_react-HW8_nodejs/index.html",
-    "main.7acaea2f.css.map": "/pet-project_react-HW8_nodejs/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/pet-project_react-HW8_nodejs/static/js/main.07d3183d.js.map"
+    "main.css": "/pet-project_react-hw8_nodejs/static/css/main.7acaea2f.css",
+    "main.js": "/pet-project_react-hw8_nodejs/static/js/main.07d3183d.js",
+    "index.html": "/pet-project_react-hw8_nodejs/index.html",
+    "main.7acaea2f.css.map": "/pet-project_react-hw8_nodejs/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/pet-project_react-hw8_nodejs/static/js/main.07d3183d.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
