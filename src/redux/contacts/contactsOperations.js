@@ -82,6 +82,10 @@ export const editContact = createAsyncThunk(
     }
 );
 
+//! Front: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzJkOWI4ZTk2NTEyNDAwMTU2NjRlZWQiLCJpYXQiOjE2NzQ1NjcxODZ9.uCeXpHTZFsIYGYPTM2xFuYAJTHX3hsgtqzhIOAIkJlA
+//? Back: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWY0M2MwZTU4YTUxZTk1YTJjOWZmYiIsImVtYWlsIjoiNzc3QHVrci51YSIsImlhdCI6MTY3MjczNjU5OH0.PRqM0mjhkFR-oZ9rg_rEVPd5dIYSIxIt5AroRBeI9sw
+
+
 //? GET @ /contacts - получить ВСЕ контакты с mockapi.io
 export const fetchContactsFromMmockapiIo = createAsyncThunk(
     'contacts/fetchContactsFromMmockapiIo',
@@ -90,7 +94,8 @@ export const fetchContactsFromMmockapiIo = createAsyncThunk(
             // const { data } = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
             const { data } = await axios.get('http://localhost:3000/api/contacts');
             // const { data } = await axios.get('http://192.168.0.3:3000/api/contacts');
-            // console.log("contacts/fetchContactsFromMmockapiIo==>data:", data); //!
+            console.log("contacts/fetchContactsFromMmockapiIo==>data:", data); //!
+            console.log("contacts/fetchContactsFromMmockapiIo==>data.users:", data.users); //!
             return data;
         } catch (error) {
             console.log(error); //!
