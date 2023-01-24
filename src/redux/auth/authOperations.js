@@ -6,13 +6,13 @@ import { toast } from 'react-toastify';
 
 
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3000/api';
 
 //! Utility to add JWT
 const setAuthHeader = token => {
-    // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWY0M2MwZTU4YTUxZTk1YTJjOWZmYiIsImVtYWlsIjoiNzc3QHVrci51YSIsImlhdCI6MTY3MjczNjU5OH0.PRqM0mjhkFR-oZ9rg_rEVPd5dIYSIxIt5AroRBeI9sw`;
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    // axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWY0M2MwZTU4YTUxZTk1YTJjOWZmYiIsImVtYWlsIjoiNzc3QHVrci51YSIsImlhdCI6MTY3MjczNjU5OH0.PRqM0mjhkFR-oZ9rg_rEVPd5dIYSIxIt5AroRBeI9sw`;
 };
 
 //! Utility to remove JWT
@@ -21,6 +21,7 @@ const clearAuthHeader = () => {
 };
 
 /*
+    todo POST @ /users/signup --> OLD
  * POST @ /users/signup
  * body: { name, email, password }
  * После успешной регистрации добавляем токен в HTTP-заголовок
