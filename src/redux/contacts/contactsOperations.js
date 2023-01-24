@@ -87,7 +87,9 @@ export const fetchContactsFromMmockapiIo = createAsyncThunk(
     'contacts/fetchContactsFromMmockapiIo',
     async (_, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
+            // const { data } = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
+            const { data } = await axios.get('http://localhost:3000/api/contacts');
+            // const { data } = await axios.get('http://192.168.0.3:3000/api/contacts');
             // console.log("contacts/fetchContactsFromMmockapiIo==>data:", data); //!
             return data;
         } catch (error) {

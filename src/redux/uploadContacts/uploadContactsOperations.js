@@ -10,8 +10,9 @@ export const fetchContactsFromMmockapiIo = createAsyncThunk(
     'uploadContacts/fetchAllContactsMmockapiIo',
     async (_, { rejectWithValue }) => {
         try {
-            // const uploadContacts = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
-            const uploadContacts = await axios.get('http://localhost:3000/api/contacts');
+            const uploadContacts = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
+            // const uploadContacts = await axios.get('http://localhost:3000/api/contacts');
+            // const uploadContacts = await axios.get('http://192.168.0.3:3000/api/contacts');
             console.log("uploadContactsOperations-axiosGet ==> uploadContacts:", uploadContacts.data); //!
             return uploadContacts.data;
         } catch (error) {
