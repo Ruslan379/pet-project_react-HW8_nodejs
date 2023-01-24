@@ -1,0 +1,26 @@
+/* .list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+} */
+
+.ContactList {
+    width: 70%; /* Ширина блока 100% */
+    /* height: 404px;  */
+    height: 44vh; /* Высота блока 600px */
+    /* Высота блока 600px */
+    overflow-y: auto; /* Вертикальная полоса прокрутки */
+    padding: 0;
+    margin-bottom: 24px;
+    /* margin: 0; */
+    list-style: none;
+
+
+    /* display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 24px; */
+}

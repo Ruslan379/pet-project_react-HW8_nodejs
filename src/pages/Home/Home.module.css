@@ -1,0 +1,27 @@
+
+.container {
+    min-height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-weight: 500;
+        font-size: 48px;
+        text-align: center;
+        color: #004f10;
+}
+
+.spanName {
+    font-weight: 500;
+    font-size: 64px;
+    text-align: center;
+    color: #7d0000;
+}
+
+.spanWith {
+    font-weight: 500;
+    font-size: 24px;
+    color: #00350b;
+}

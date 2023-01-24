@@ -1,0 +1,1 @@
+export const getUploadContacts = state => state.uploadContacts; 

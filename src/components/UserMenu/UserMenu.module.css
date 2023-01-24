@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    margin-right: 4px;
+}
+
+.welcome {
+    /* font-size: 28px; */
+    color: #ab0000;
+}
+
+.userName {
+    font-weight: 700;
+}
+
+.btnLogout {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    /* padding: 12px; */
+    font-weight: 700;
+    border: 1px;
+    border-radius: 4px;
+    color: #2a363b;
+    background-color: rgb(255, 153, 0);
+}
+
