@@ -25,7 +25,8 @@ export const ContactForm = () => {
 
         const form = e.currentTarget;
         const name = form.elements.name.value;
-        const number = form.elements.number.value;
+        // const number = form.elements.number.value; //??
+        const phone = form.elements.phone.value;
 
         if (
             contacts.find(item => item.name.toLowerCase() === name.toLowerCase())
@@ -36,7 +37,7 @@ export const ContactForm = () => {
             return;
         }
 
-        dispatch(addContact({ name, number }));
+        dispatch(addContact({ name, phone }));
         form.reset();
         return;
     };
@@ -71,17 +72,17 @@ export const ContactForm = () => {
                 <br />
 
                 <label className={css.FormLabel}>
-                    {/* Number */}
-                    {isLoading ? "..." : "Number"}
+                    {/* Phone */}
+                    {isLoading ? "..." : "Phone"}
                     <br />
                     <input
                         className={css.FormInput}
                         type="tel"
-                        name="number"
+                        name="phone"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
-                    // value={numberValue}
+                    // value={phoneValue}
                     // onChange={handleChange}
                     />
                 </label>
