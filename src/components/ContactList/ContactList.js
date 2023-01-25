@@ -11,12 +11,14 @@ import css from './ContactList.module.css';
 export const ContactList = ({ visibleContacts }) => {
     return (
         <ul className={css.ContactList}>
-            {visibleContacts.map(({ id, name, number }) => (
+            {/* {visibleContacts.map(({ id, name, number }) => ( */}
+            {visibleContacts.map(({ _id, name, phone }) => (
                 <ContactListItem
-                    key={id}
-                    id={id}
+                    key={_id}
+                    id={_id}
                     name={name}
-                    number={number}
+                    // number={number} //??
+                    phone={phone}
                 />
             ))}
         </ul>

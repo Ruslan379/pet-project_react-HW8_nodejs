@@ -27,7 +27,7 @@ export default function Contacts() {
     // console.log("Contacts==>filter:", filter); //!
 
     const contacts = useSelector(selectAllContacts);
-    // console.log("Contacts==>contacts:", contacts); //!
+    console.log("Contacts==>contacts:", contacts); //!
 
 
     useEffect(() => {

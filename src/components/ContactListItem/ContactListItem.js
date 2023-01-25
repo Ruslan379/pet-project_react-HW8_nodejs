@@ -12,7 +12,8 @@ import css from './ContactListItem.module.css';
 
 
 
-export const ContactListItem = ({ id, name, number }) => {
+// export const ContactListItem = ({ id, name, number }) => {
+export const ContactListItem = ({ id, name, phone }) => {
     const [showModal, setShowModal] = useState(false);
 
     const dispatch = useDispatch();
@@ -50,7 +51,7 @@ export const ContactListItem = ({ id, name, number }) => {
             <li className={css.ContactListItem}>
                 <p className={css.ContactListText}>{name}:
                     <span className={css.ContactListNumber}
-                    > {number}
+                    > {phone}
                     </span>
                 </p>
                 <button
@@ -78,7 +79,7 @@ export const ContactListItem = ({ id, name, number }) => {
                         <ContactEditor
                             id={id}
                             name={name}
-                            number={number}
+                            number={phone}
                             toggleModal={toggleModal}
 
                         />
@@ -92,5 +93,5 @@ export const ContactListItem = ({ id, name, number }) => {
 ContactListItem.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
 };
