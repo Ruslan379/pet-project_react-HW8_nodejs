@@ -6,14 +6,24 @@ import { toast } from 'react-toastify';
 
 
 
+
+//! axios defaults baseURL
+axios.defaults.baseURL = 'http://localhost:3000/api'; //??
+
+
 //! GET @ /contacts
 export const fetchContacts = createAsyncThunk(
     'contacts/fetchAll',
     async (_, thunkAPI) => {
         try {
             const { data } = await axios.get('/contacts');
-            // console.log("contacts/addContact==>data:", data); //!
-            return data;
+            console.log("contacts/addContact==>data:", data); //!
+            // const { data: { contacts } } = await axios.get('/contacts');
+            const { contacts } = data;
+            console.log("contacts/addContact==>data.contacts:", contacts); //!
+            // return data; //??
+            return data.contacts;
+            // return contacts; 
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 404" ? "Нет такой коллекции пользователей" : error.message}`, { position: "top-center", autoClose: 2000 });
@@ -22,14 +32,17 @@ export const fetchContacts = createAsyncThunk(
     }
 );
 
+
 //! POST @ /contacts
 export const addContact = createAsyncThunk(
     'contacts/addContact',
-    async ({ name, number }, thunkAPI) => {
+    // async ({ name, number }, thunkAPI) => {
+    async ({ name, phone }, thunkAPI) => {
         try {
-            // console.log("contacts/addContact==>name:", name); //! 
-            // console.log("contacts/addContact==>number:", number); //! 
-            const { data } = await axios.post('/contacts', { name, number });
+            console.log("contacts/addContact==>name:", name); //! 
+            console.log("contacts/addContact==>phone:", phone); //! 
+            // const { data } = await axios.post('/contacts', { name, number });
+            const { data } = await axios.post('/contacts', { name, phone });
             return data;
         } catch (error) {
             console.log(error); //!
@@ -38,6 +51,7 @@ export const addContact = createAsyncThunk(
         }
     }
 );
+
 
 //! DELETE @ /contacts/:id
 export const deleteContact = createAsyncThunk(
@@ -57,6 +71,7 @@ export const deleteContact = createAsyncThunk(
         }
     }
 );
+
 
 //! PATCH @ /contacts/:id
 export const editContact = createAsyncThunk(
@@ -91,13 +106,13 @@ export const fetchContactsFromMmockapiIo = createAsyncThunk(
     'contacts/fetchContactsFromMmockapiIo',
     async (_, { rejectWithValue }) => {
         try {
-            // const { data } = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
-            const { data } = await axios.get('http://localhost:3000/api/contacts');
-            // const { data } = await axios.get('http://192.168.0.3:3000/api/contacts');
+            const { data } = await axios.get('https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts');
+            // const { data } = await axios.get('http://localhost:3000/api/contacts'); //??
+            // const { data } = await axios.get('http://192.168.0.3:3000/api/contacts'); //??
             console.log("contacts/fetchContactsFromMmockapiIo==>data:", data); //!
             console.log("contacts/fetchContactsFromMmockapiIo==>data.contacts:", data.contacts); //!
-            // return data;
-            return data.contacts;
+            return data;
+            // return data.contacts; //??
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 404" ? "Нет такой коллекции пользователей" : error.message}`, { position: "top-center", autoClose: 2000 });

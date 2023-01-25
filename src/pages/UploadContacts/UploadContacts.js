@@ -42,8 +42,9 @@ export default function UploadContacts() {
   const handlAddUploadContacts = () => {
     for (const uploadContact of uploadContacts) {
       const name = uploadContact.name;
-      const number = uploadContact.number;
-      dispatch(addContact({ name, number }));
+      // const number = uploadContact.number; //??
+      const phone = uploadContact.number;
+      dispatch(addContact({ name, phone }));
     };
     navigate("/contacts", { replace: true });
   };

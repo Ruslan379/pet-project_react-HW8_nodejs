@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 
 
 
+
+//! axios defaults baseURL
 // axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 axios.defaults.baseURL = 'http://localhost:3000/api';
 
@@ -32,7 +34,9 @@ export const register = createAsyncThunk(
     async (credentials, thunkAPI) => {
         try {
             const res = await axios.post('/users/signup', credentials);
+            console.log("res.data.token:", res.data.token); //!
             setAuthHeader(res.data.token);
+            console.log("res.data:", res.data); //!
             return res.data;
         } catch (error) {
             console.log(error); //!
@@ -73,7 +77,8 @@ export const logOut = createAsyncThunk(
     'auth/logout',
     async (_, thunkAPI) => {
         try {
-            await axios.post('/users/logout');
+            // await axios.post('/users/logout');
+            await axios.get('/users/logout');
             clearAuthHeader();
         } catch (error) {
             console.log(error); //!
