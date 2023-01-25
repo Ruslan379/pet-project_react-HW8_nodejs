@@ -9,7 +9,8 @@ import { Spinner } from 'components/Spinner/Spinner';
 import css from './ContactEditor.module.css';
 
 
-export const ContactEditor = ({ id, name, number, toggleModal }) => {
+// export const ContactEditor = ({ id, name, number, toggleModal }) => {
+export const ContactEditor = ({ id, name, phone, toggleModal }) => {
     const dispatch = useDispatch();
 
     const isLoading = useSelector(selectLoading);
@@ -27,7 +28,8 @@ export const ContactEditor = ({ id, name, number, toggleModal }) => {
             editContact({
                 id,
                 name: form.elements.name.value,
-                number: form.elements.number.value,
+                // number: form.elements.number.value,
+                phone: form.elements.phone.value,
             })
         ); //! 2-й вариант
         form.reset();
@@ -65,17 +67,17 @@ export const ContactEditor = ({ id, name, number, toggleModal }) => {
                 <br />
 
                 <label className={css.FormLabelEdit}>
-                    {/* Number */}
-                    {isLoading ? "..." : "Number"}
+                    {/* Phone */}
+                    {isLoading ? "..." : "Phone"}
                     <br />
                     <input
                         className={css.FormInputEdit}
                         type="tel"
-                        name="number"
+                        name="phone"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
-                        defaultValue={number}
+                        defaultValue={phone}
                     // onChange={handleChange}
                     />
                 </label>
@@ -98,7 +100,7 @@ export const ContactEditor = ({ id, name, number, toggleModal }) => {
 ContactEditor.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
     toggleModal: PropTypes.func.isRequired,
 };
 

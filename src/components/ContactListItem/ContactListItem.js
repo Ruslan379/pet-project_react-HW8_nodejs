@@ -79,7 +79,8 @@ export const ContactListItem = ({ id, name, phone }) => {
                         <ContactEditor
                             id={id}
                             name={name}
-                            number={phone}
+                            // number={number}
+                            phone={phone}
                             toggleModal={toggleModal}
 
                         />
