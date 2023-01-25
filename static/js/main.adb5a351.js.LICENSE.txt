@@ -123,9 +123,17 @@
 
 //!
 
+//! 
+
+//! GET @ /contacts
+
+//! POST @ /contacts
+
 //! Utility to add JWT
 
 //! Utility to remove JWT
+
+//! axios defaults baseURL
 
 //! МОЙ вариант:
 
