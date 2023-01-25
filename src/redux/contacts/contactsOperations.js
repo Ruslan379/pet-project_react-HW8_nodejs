@@ -16,14 +16,14 @@ export const fetchContacts = createAsyncThunk(
     'contacts/fetchAll',
     async (_, thunkAPI) => {
         try {
-            const { data } = await axios.get('/contacts');
-            console.log("contacts/fetchAll==>data:", data); //!
-            // const { data: { contacts } } = await axios.get('/contacts');
-            const { contacts } = data;
+            // const { data } = await axios.get('/contacts'); //?  //?? 
+            // console.log("contacts/fetchAll==>data:", data); //! //??
+            const { data: { contacts } } = await axios.get('/contacts'); //???
+            // const { contacts } = data; //??  //???
             console.log("contacts/fetchAll==>data.contacts:", contacts); //!
-            // return data; //??
-            return data.contacts;
-            // return contacts; 
+            // return data; //?
+            // return data.contacts; //??
+            return contacts; //??  //???
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 404" ? "Нет такой коллекции пользователей" : error.message}`, { position: "top-center", autoClose: 2000 });
@@ -44,7 +44,9 @@ export const addContact = createAsyncThunk(
             // const { data } = await axios.post('/contacts', { name, number });
             const { data } = await axios.post('/contacts', { name, phone });
             console.log("contacts/addContact==>data:", data); //!
-            return data;
+            console.log("contacts/addContact==>data.contact:", data.contact); //!
+            // return data; //??
+            return data.contact;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка при создании контакта" : error.message}`, { position: "top-center", autoClose: 2000 });
