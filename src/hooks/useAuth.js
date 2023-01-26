@@ -18,5 +18,6 @@ export const useAuth = () => {
         isLoggedIn,
         isRefreshing,
         user,
+        // user: user.user, //??
     };
 };

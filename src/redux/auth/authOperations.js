@@ -36,10 +36,9 @@ export const register = createAsyncThunk(
             const res = await axios.post('/users/signup', credentials);
             console.log("res.data.token:", res.data.token); //!
             setAuthHeader(res.data.token);
-            console.log("res.data:", res.data); //!
-            console.log("res.data.user:", res.data.user); //!
-            // return res.data; //??
-            return res.data.user;
+            console.log("auth/signup --> res.data:", res.data); //!
+            console.log("auth/signup --> res.data.user:", res.data.user); //!
+            return res.data; //??
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка создания пользователя" : error.message}`, { position: "top-center", autoClose: 2000 });
@@ -61,10 +60,9 @@ export const logIn = createAsyncThunk(
             const res = await axios.post('/users/login', credentials);
             console.log("res.data.token:", res.data.token); //!
             setAuthHeader(res.data.token);
-            console.log("res.data:", res.data); //!
-            console.log("res.data.user:", res.data.user); //!
-            // return res.data; //??
-            return res.data.user;
+            console.log("auth/login --> res.data:", res.data); //!
+            console.log("auth/login --> res.data.user:", res.data.user); //!
+            return res.data;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка входа" : error.message}`, { position: "top-center", autoClose: 2000 });
@@ -117,7 +115,9 @@ export const refreshUser = createAsyncThunk(
         try {
             setAuthHeader(persistedToken);
             const res = await axios.get('/users/current');
-            return res.data;
+            console.log("auth/refresh --> res.data.user:", res.data.user); //!
+            // return res.data; //??
+            return res.data.user;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 401" ? "Отсутствует заголовок с токеном авторизации" : error.message}`, { position: "top-center", autoClose: 2000 });
