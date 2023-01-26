@@ -19,7 +19,7 @@ const setAuthHeader = token => {
 
 //! Utility to remove JWT
 const clearAuthHeader = () => {
-    axios.defaults.headers.common.Authorization = '';
+    axios.defaults.headers.common.Authorization = "";
 };
 
 /*
@@ -81,9 +81,12 @@ export const logOut = createAsyncThunk(
     'auth/logout',
     async (_, thunkAPI) => {
         try {
-            // await axios.post('/users/logout');
-            await axios.get('/users/logout');
+            // await axios.post('/users/logout'); //??
+            const res = await axios.get('/users/logout');
             clearAuthHeader();
+            console.log("auth/logout --> res.data.status:", res.data.status); //!
+            console.log("auth/logout --> res.data.user:", res.data.user); //!
+            console.log("auth/logout --> res.data.user.token:", res.data.user.token); //!
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 401" ? "Отсутствует заголовок с токеном авторизации" : error.message}`, { position: "top-center", autoClose: 2000 });
