@@ -61,7 +61,7 @@ export const deleteContact = createAsyncThunk(
     'contacts/deleteContact',
     async (contactId, thunkAPI) => {
         try {
-            // console.log("contacts/deleteContact==>contactId:", contactId); //!
+            console.log("contacts/deleteContact==>contactId:", contactId); //!
             await axios.delete(`/contacts/${contactId}`);
             // const response = await axios.delete(`/contacts/${contactId}`); //!!!  Ошибка Репеты
             // console.log("deleteContact==>response.data", response.data); //!!!  пустой объект

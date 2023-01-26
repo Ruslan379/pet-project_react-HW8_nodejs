@@ -30,7 +30,8 @@ export function DeleteAllContacts() {
 
   const handlDeleteAllContacts = () => {
     for (const contact of contacts) {
-      const id = contact.id;
+      // const id = contact.id;
+      const id = contact._id;
       dispatch(deleteContact(id));
     };
     // navigate("/contacts", { replace: true });
