@@ -96,7 +96,9 @@ const authSlice = createSlice({
         },
         [refreshUser.rejected](state, { payload }) {
             state.isRefreshing = false;
+            state.token = null; //??
             state.error = payload;
+
         },
     },
 });
