@@ -67,8 +67,8 @@ export const logIn = createAsyncThunk(
             console.log(error); //!
 
             if (error.message === "Request failed with status code 400") {
-                toast.error(`Ошибка входа`, { position: "top-center", autoClose: 2000 });
-                console.log('Ошибка входа. Попробуйте снова...'); //!
+                toast.error(`Ошибка входа. Введите еmail и пароль`, { position: "top-center", autoClose: 2000 });
+                console.log('Ошибка входа. Введите еmail и пароль...'); //!
                 return thunkAPI.rejectWithValue(error.message);
             };
             if (error.message === "Request failed with status code 401") {
