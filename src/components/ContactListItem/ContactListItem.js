@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { fetchContacts } from 'redux/contacts/contactsOperations'; //??
 import { deleteContact } from 'redux/contacts/contactsOperations';
 import { selectLoading } from 'redux/contacts/contactsSelectors';
 import { ContactEditor } from 'components/ContactEditor/ContactEditor';
@@ -21,7 +22,13 @@ export const ContactListItem = ({ id, name, phone }) => {
     const isLoading = useSelector(selectLoading);
     // console.log("ContactListItem==>isLoading:", isLoading); //!
 
-    const handleDelete = () => dispatch(deleteContact(id));
+
+    // const handleDelete = () => dispatch(deleteContact(id)); //??
+
+    const handleDelete = () => {
+        dispatch(deleteContact(id));
+        dispatch(fetchContacts());
+    };
 
 
     const toggleModal = () => {

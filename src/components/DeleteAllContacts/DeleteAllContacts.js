@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigate } from "react-router-dom";
 
 import { deleteContact } from 'redux/contacts/contactsOperations';
+import { fetchContacts } from 'redux/contacts/contactsOperations'; //??
 import { selectLoading, selectAllContacts } from 'redux/contacts/contactsSelectors';
 
 import { Container } from 'components/Container/Container';
@@ -33,6 +34,7 @@ export function DeleteAllContacts() {
       // const id = contact.id;
       const id = contact._id;
       dispatch(deleteContact(id));
+      dispatch(fetchContacts());
     };
     // navigate("/contacts", { replace: true });
   };
