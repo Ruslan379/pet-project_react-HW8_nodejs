@@ -137,6 +137,12 @@
 
 //! axios defaults baseURL
 
+//! Если message:"Request failed with status code 500",
+
 //! МОЙ вариант:
 
+//! Создать условие: 
+
 //! вариант Репеты:
+
+//! то выдать сообщение: "Токен не валидный!!!" и очистить токен: clearAuthHeader();
