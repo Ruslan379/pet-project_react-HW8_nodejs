@@ -37,7 +37,9 @@ export const register = createAsyncThunk(
             console.log("res.data.token:", res.data.token); //!
             setAuthHeader(res.data.token);
             console.log("res.data:", res.data); //!
-            return res.data;
+            console.log("res.data.user:", res.data.user); //!
+            // return res.data; //??
+            return res.data.user;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка создания пользователя" : error.message}`, { position: "top-center", autoClose: 2000 });
@@ -57,8 +59,12 @@ export const logIn = createAsyncThunk(
     async (credentials, thunkAPI) => {
         try {
             const res = await axios.post('/users/login', credentials);
+            console.log("res.data.token:", res.data.token); //!
             setAuthHeader(res.data.token);
-            return res.data;
+            console.log("res.data:", res.data); //!
+            console.log("res.data.user:", res.data.user); //!
+            // return res.data; //??
+            return res.data.user;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка входа" : error.message}`, { position: "top-center", autoClose: 2000 });

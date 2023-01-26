@@ -9,7 +9,7 @@ import css from './UserMenu.module.css';
 export const UserMenu = () => {
     const dispatch = useDispatch();
     const { user } = useAuth();
-    // console.log("user:", user); //!
+    console.log("user:", user); //!
 
     return (
         <div className={css.wrapper}>
