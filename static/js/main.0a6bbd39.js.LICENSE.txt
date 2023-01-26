@@ -125,6 +125,8 @@
 
 //! 
 
+//! 2-й вариант
+
 //! GET @ /contacts
 
 //! POST @ /contacts
