@@ -80,7 +80,8 @@ const contactsSlice = createSlice({
             state.error = null;
             // console.log("editContact==>payload:", payload); //!
             // console.log("state.items:", state.items); //!
-            const index = state.items.findIndex(task => task.id === payload.id);
+            // const index = state.items.findIndex(task => task.id === payload.id);
+            const index = state.items.findIndex(task => task._id === payload._id);
             // console.log("index:", index); //!
             // console.log("state.items[index]:", state.items[index]); //!
             state.items.splice(index, 1, payload);
