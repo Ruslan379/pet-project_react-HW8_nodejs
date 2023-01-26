@@ -16,9 +16,9 @@ export default function Home() {
                     {/* {isLoading ? [<Spinner size="18" />, " Editing..."] : "Edit"} */}
                     <br />
                 </span>
-                Welcome to the HW-8
+                Welcome to Contact BOOK
                 <span className={css.spanWith}>
-                    &nbsp;(with createAsyncThunk)
+                    &nbsp;(Designed with love for programming...)
                 </span>
             </h1>
         </div>
