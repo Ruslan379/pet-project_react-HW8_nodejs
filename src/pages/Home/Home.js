@@ -17,6 +17,7 @@ export default function Home() {
                     <br />
                 </span>
                 Welcome to Contact BOOK
+                <br />
                 <span className={css.spanWith}>
                     &nbsp;(Designed with love for programming...)
                 </span>
