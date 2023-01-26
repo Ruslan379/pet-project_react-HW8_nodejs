@@ -130,14 +130,12 @@ export const refreshUser = createAsyncThunk(
                 toast.error(`Отсутствует заголовок с токеном авторизации`, { position: "top-center", autoClose: 2000 });
                 return thunkAPI.rejectWithValue(error.message);
             };
-
             if (error.message === "Request failed with status code 500") {
-                toast.error(`Токен был недействительный!!!`, { position: "top-center", autoClose: 2000 });
-                //! обнулить state.auth.token
+                toast.error(`Токен удален, так как был недействительный!!!`, { position: "top-center", autoClose: 2000 });
+                //! обнулить token в authSlice.js --> refreshUser.rejected
                 clearAuthHeader();
                 return thunkAPI.rejectWithValue(error.message);
             };
-
             // toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 401" ? "Отсутствует заголовок с токеном авторизации" : error.message}`, { position: "top-center", autoClose: 2000 });
             toast.error(error.message, { position: "top-center", autoClose: 2000 });
             return thunkAPI.rejectWithValue(error.message);
