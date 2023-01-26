@@ -65,7 +65,20 @@ export const logIn = createAsyncThunk(
             return res.data;
         } catch (error) {
             console.log(error); //!
-            toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка входа" : error.message}`, { position: "top-center", autoClose: 2000 });
+
+            if (error.message === "Request failed with status code 400") {
+                toast.error(`Ошибка входа`, { position: "top-center", autoClose: 2000 });
+                console.log('Ошибка входа. Попробуйте снова...'); //!
+                return thunkAPI.rejectWithValue(error.message);
+            };
+            if (error.message === "Request failed with status code 401") {
+                toast.error(`Email или пароль неверны`, { position: "top-center", autoClose: 2000 });
+                console.log('Email или пароль неверны. Попробуйте снова...'); //!
+                return thunkAPI.rejectWithValue(error.message);
+            };
+            toast.error(error.message, { position: "top-center", autoClose: 2000 });
+            console.log(error.message); //!
+            // toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка входа" : error.message}`, { position: "top-center", autoClose: 2000 });
             return thunkAPI.rejectWithValue(error.message);
         }
     }
