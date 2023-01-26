@@ -27,7 +27,7 @@ export const ContactListItem = ({ id, name, phone }) => {
 
     const handleDelete = () => {
         dispatch(deleteContact(id));
-        dispatch(fetchContacts());
+        dispatch(fetchContacts()); //??
     };
 
 

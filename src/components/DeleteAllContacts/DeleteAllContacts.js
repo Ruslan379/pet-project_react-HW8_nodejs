@@ -34,7 +34,7 @@ export function DeleteAllContacts() {
       // const id = contact.id;
       const id = contact._id;
       dispatch(deleteContact(id));
-      dispatch(fetchContacts());
+      dispatch(fetchContacts()); //??
     };
     // navigate("/contacts", { replace: true });
   };
