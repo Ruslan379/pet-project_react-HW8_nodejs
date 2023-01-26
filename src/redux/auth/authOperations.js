@@ -132,8 +132,8 @@ export const refreshUser = createAsyncThunk(
             };
 
             if (error.message === "Request failed with status code 500") {
-                toast.error(`Токен недействительный!!!`, { position: "top-center", autoClose: 2000 });
-                // clearAuthHeader();
+                toast.error(`Токен был недействительный!!!`, { position: "top-center", autoClose: 2000 });
+                clearAuthHeader();
                 return thunkAPI.rejectWithValue(error.message);
             };
 
