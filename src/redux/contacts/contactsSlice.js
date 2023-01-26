@@ -69,7 +69,9 @@ const contactsSlice = createSlice({
             //! МОЙ вариант:
             // const newContact = state.items.filter(contact => contact.id !== payload);
             // console.log("deleteContact==>payload:", payload); //!
-            state.items = state.items.filter(contact => contact.id !== payload);
+            // state.items = state.items.filter(contact => contact.id !== payload); //??
+            state.items = state.items.filter(contact => contact._id !== payload);
+            // console.log("deleteContact==>state.items:", state.items); //!
             // state = { items: newContact }
         },
 

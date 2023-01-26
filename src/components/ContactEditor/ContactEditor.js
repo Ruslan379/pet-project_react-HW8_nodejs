@@ -28,7 +28,7 @@ export const ContactEditor = ({ id, name, phone, toggleModal }) => {
             editContact({
                 id,
                 name: form.elements.name.value,
-                // number: form.elements.number.value,
+                // number: form.elements.number.value, //??
                 phone: form.elements.phone.value,
             })
         ); //! 2-й вариант

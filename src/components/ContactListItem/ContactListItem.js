@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchContacts } from 'redux/contacts/contactsOperations'; //??
+// import { fetchContacts } from 'redux/contacts/contactsOperations'; //??
 import { deleteContact } from 'redux/contacts/contactsOperations';
 import { selectLoading } from 'redux/contacts/contactsSelectors';
 import { ContactEditor } from 'components/ContactEditor/ContactEditor';
@@ -13,7 +13,7 @@ import css from './ContactListItem.module.css';
 
 
 
-// export const ContactListItem = ({ id, name, number }) => {
+// export const ContactListItem = ({ id, name, number }) => { //??
 export const ContactListItem = ({ id, name, phone }) => {
     const [showModal, setShowModal] = useState(false);
 
@@ -27,7 +27,7 @@ export const ContactListItem = ({ id, name, phone }) => {
 
     const handleDelete = () => {
         dispatch(deleteContact(id));
-        dispatch(fetchContacts()); //??
+        // dispatch(fetchContacts()); //??
     };
 
 
