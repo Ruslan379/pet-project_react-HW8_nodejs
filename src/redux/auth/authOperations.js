@@ -119,13 +119,17 @@ export const refreshUser = createAsyncThunk(
             setAuthHeader(persistedToken);
             const res = await axios.get('/users/current');
             console.log("auth/refresh --> res.data.user:", res.data.user); //!
+            //! Проверка на старый токен
+            if (persistedToken !== res.data.user.token) {
+                toast.error(`Ваш токен уже недействительный. Залогиньтесь снова!!!`, { position: "top-center", autoClose: 2000 });
+                console.log('Ваш токен уже недействительный. Залогиньтесь снова!!!'); //!
+                return thunkAPI.rejectWithValue('Your token is no longer valid. Login again');
+            }
             // return res.data; //??
             return res.data.user;
         } catch (error) {
             console.log(error); //!
-            //! Создать условие: 
-            //! Если message:"Request failed with status code 500",
-            //! то выдать сообщение: "Токен не валидный!!!" и очистить токен: clearAuthHeader();
+
             if (error.message === "Request failed with status code 401") {
                 toast.error(`Отсутствует заголовок с токеном авторизации`, { position: "top-center", autoClose: 2000 });
                 return thunkAPI.rejectWithValue(error.message);
