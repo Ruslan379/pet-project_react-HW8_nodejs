@@ -137,14 +137,10 @@
 
 //! axios defaults baseURL
 
-//! Если message:"Request failed with status code 500",
-
 //! МОЙ вариант:
 
-//! Создать условие: 
+//! Проверка на старый токен
 
 //! вариант Репеты:
 
 //! обнулить token в authSlice.js --> refreshUser.rejected
-
-//! то выдать сообщение: "Токен не валидный!!!" и очистить токен: clearAuthHeader();
