@@ -137,6 +137,8 @@
 
 //! axios defaults baseURL
 
+//! axios defaults baseURL (возможно, это не надо, т.к. уже есть в authOperations.js)
+
 //! МОЙ вариант:
 
 //! Проверка на старый токен
