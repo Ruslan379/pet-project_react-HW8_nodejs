@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 //! axios defaults baseURL (возможно, это не надо, т.к. уже есть в authOperations.js)
 // axios.defaults.baseURL = 'http://localhost:3000/api'; //??
 // axios.defaults.baseURL = 'http://192.168.99.100:3000/api';
-axios.defaults.baseURL = 'http://contact-book-backend52.onrender.com';
+axios.defaults.baseURL = 'http://contact-book-backend52.onrender.com/api';
 
 
 //! GET @ /contacts
