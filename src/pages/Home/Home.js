@@ -16,7 +16,7 @@ export default function Home() {
                     {/* {isLoading ? [<Spinner size="18" />, " Editing..."] : "Edit"} */}
                     <br />
                 </span>
-                Welcome to Contact BOOK
+                Welcome to Contacts BOOK
                 <br />
                 <span className={css.spanWith}>
                     &nbsp;(Designed with love for programming...)
