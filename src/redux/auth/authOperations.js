@@ -34,16 +34,31 @@ const clearAuthHeader = () => {
 export const register = createAsyncThunk(
     'auth/signup',
     async (credentials, thunkAPI) => {
+        const { email } = credentials
         try {
             const res = await axios.post('/users/signup', credentials);
             console.log("res.data.token:", res.data.token); //!
             setAuthHeader(res.data.token);
             console.log("auth/signup --> res.data:", res.data); //!
             console.log("auth/signup --> res.data.user:", res.data.user); //!
+            console.log("auth/signup --> res.data.user:", res.data.user.avatarURL); //!
             return res.data; //??
         } catch (error) {
             console.log(error); //!
-            toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка создания пользователя" : error.message}`, { position: "top-center", autoClose: 2000 });
+
+            if (error.message === "Request failed with status code 409") {
+                toast.error(`Email ${email} in use`, { position: "top-center", autoClose: 2000 });
+                console.log(`Email ${email} уже используется`); //!
+                return thunkAPI.rejectWithValue(error.message);
+            };
+            if (error.message === "Request failed with status code 400") {
+                toast.error(`User creation error`, { position: "top-center", autoClose: 2000 });
+                console.log(`Ошибка создания пользователя`); //!
+                return thunkAPI.rejectWithValue(error.message);
+            };
+            toast.error(error.message, { position: "top-center", autoClose: 2000 });
+            console.log(error.message); //!
+            // toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка создания пользователя" : error.message}`, { position: "top-center", autoClose: 2000 });
             return thunkAPI.rejectWithValue(error.message);
         }
     }
@@ -69,12 +84,12 @@ export const logIn = createAsyncThunk(
             console.log(error); //!
 
             if (error.message === "Request failed with status code 400") {
-                toast.error(`Ошибка входа. Введите еmail и пароль`, { position: "top-center", autoClose: 2000 });
+                toast.error(`Login failed. Enter email and password`, { position: "top-center", autoClose: 2000 });
                 console.log('Ошибка входа. Введите еmail и пароль...'); //!
                 return thunkAPI.rejectWithValue(error.message);
             };
             if (error.message === "Request failed with status code 401") {
-                toast.error(`Email или пароль неверны`, { position: "top-center", autoClose: 2000 });
+                toast.error(`Login failed. Email or password is incorrect`, { position: "top-center", autoClose: 2000 });
                 console.log('Email или пароль неверны. Попробуйте снова...'); //!
                 return thunkAPI.rejectWithValue(error.message);
             };

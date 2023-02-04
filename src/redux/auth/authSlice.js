@@ -10,7 +10,8 @@ import {
 
 
 const initialState = {
-    user: { name: null, email: null },
+    // user: { name: null, email: null },
+    user: { name: null, email: null, avatarURL: null },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
@@ -24,7 +25,8 @@ const authSlice = createSlice({
     extraReducers: {
         //! register
         [register.pending](state, { payload }) {
-            state.user = { name: null, email: null };
+            // state.user = { name: null, email: null };
+            state.user = { name: null, email: null, avatarURL: null };
             state.token = null;
             state.isLoggedIn = false;
             state.isRefreshing = false;
@@ -37,7 +39,8 @@ const authSlice = createSlice({
             state.error = null;
         },
         [register.rejected](state, { payload }) {
-            state.user = { name: null, email: null };
+            // state.user = { name: null, email: null };
+            state.user = { name: null, email: null, avatarURL: null };
             state.token = null;
             state.isLoggedIn = false;
             state.isRefreshing = false;
@@ -46,7 +49,8 @@ const authSlice = createSlice({
 
         //! logIn
         [logIn.pending](state, { payload }) {
-            state.user = { name: null, email: null };
+            // state.user = { name: null, email: null };
+            state.user = { name: null, email: null, avatarURL: null };
             state.token = null;
             state.isLoggedIn = false;
             state.isRefreshing = false;
@@ -60,7 +64,8 @@ const authSlice = createSlice({
             state.error = null;
         },
         [logIn.rejected](state, { payload }) {
-            state.user = { name: null, email: null };
+            // state.user = { name: null, email: null };
+            state.user = { name: null, email: null, avatarURL: null };
             state.token = null;
             state.isLoggedIn = false;
             state.isRefreshing = false;
@@ -73,7 +78,8 @@ const authSlice = createSlice({
             state.error = null;
         },
         [logOut.fulfilled](state) {
-            state.user = { name: null, email: null };
+            // state.user = { name: null, email: null };
+            state.user = { name: null, email: null, avatarURL: null };
             state.token = null;
             state.isLoggedIn = false;
             state.error = null;

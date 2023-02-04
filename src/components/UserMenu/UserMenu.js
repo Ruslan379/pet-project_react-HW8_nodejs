@@ -3,13 +3,15 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks';
 
-import defaultAvatar from 'icons/default-avatar.png';
+// import defaultAvatar from 'icons/default-avatar.png'; //?
 import css from './UserMenu.module.css';
 
 export const UserMenu = () => {
     const dispatch = useDispatch();
     const { user } = useAuth();
+    const defaultAvatar = user.avatarURL
     console.log("user:", user); //!
+    console.log("defaultAvatar:", defaultAvatar); //!
 
     return (
         <div className={css.wrapper}>
