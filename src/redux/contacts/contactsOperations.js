@@ -135,8 +135,18 @@ export const deleteContactFromMmockapiIo = createAsyncThunk(
     async (contactId, thunkAPI) => {
         try {
             // console.log("contacts/deleteContactFromMmockapiIo==>contactId:", contactId); //!
-            await axios.delete(`https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts/${contactId}`);
-            return contactId;
+            const user = await axios.get('/users/current');
+            console.log("contacts/deleteContactFromMmockapiIo==>user:", user);
+            console.log("contacts/deleteContactFromMmockapiIo==>user.data.user:", user.data.user.subscription);
+            const rightToDdeletion = user.data.user.subscription;
+            // Проверка пользователя на права УДАЛЕНИЯ
+            if (rightToDdeletion === "business") {
+                await axios.delete(`https://6326c1ee70c3fa390f9bc51d.mockapi.io/contacts/${contactId}`);
+                return contactId;
+            }
+            toast.error(`${user.data.user.name} does not have permission to delete these contacts`, { position: "top-center", autoClose: 2000 });
+            console.log(`У пользователя: ${user.data.user.name} нет прав на удаление этих контактов`);
+            return;
         } catch (error) {
             console.log(error); //!
             toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 404" ? "Нет такой коллекции пользователей" : error.message}`, { position: "top-center", autoClose: 2000 });
