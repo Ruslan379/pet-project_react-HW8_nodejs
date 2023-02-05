@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pet-project_react-hw8_nodejs/static/css/main.20a45aa1.css",
-    "main.js": "/pet-project_react-hw8_nodejs/static/js/main.2016435f.js",
+    "main.css": "/pet-project_react-hw8_nodejs/static/css/main.e93c4753.css",
+    "main.js": "/pet-project_react-hw8_nodejs/static/js/main.6126a174.js",
     "static/css/290.40175aac.chunk.css": "/pet-project_react-hw8_nodejs/static/css/290.40175aac.chunk.css",
     "static/js/290.56dd0d79.chunk.js": "/pet-project_react-hw8_nodejs/static/js/290.56dd0d79.chunk.js",
     "static/css/40.1e05f24e.chunk.css": "/pet-project_react-hw8_nodejs/static/css/40.1e05f24e.chunk.css",
@@ -16,8 +16,8 @@
     "static/js/270.62872f8f.chunk.js": "/pet-project_react-hw8_nodejs/static/js/270.62872f8f.chunk.js",
     "static/js/333.41cd2cd7.chunk.js": "/pet-project_react-hw8_nodejs/static/js/333.41cd2cd7.chunk.js",
     "index.html": "/pet-project_react-hw8_nodejs/index.html",
-    "main.20a45aa1.css.map": "/pet-project_react-hw8_nodejs/static/css/main.20a45aa1.css.map",
-    "main.2016435f.js.map": "/pet-project_react-hw8_nodejs/static/js/main.2016435f.js.map",
+    "main.e93c4753.css.map": "/pet-project_react-hw8_nodejs/static/css/main.e93c4753.css.map",
+    "main.6126a174.js.map": "/pet-project_react-hw8_nodejs/static/js/main.6126a174.js.map",
     "290.40175aac.chunk.css.map": "/pet-project_react-hw8_nodejs/static/css/290.40175aac.chunk.css.map",
     "290.56dd0d79.chunk.js.map": "/pet-project_react-hw8_nodejs/static/js/290.56dd0d79.chunk.js.map",
     "40.1e05f24e.chunk.css.map": "/pet-project_react-hw8_nodejs/static/css/40.1e05f24e.chunk.css.map",
@@ -33,7 +33,7 @@
     "333.41cd2cd7.chunk.js.map": "/pet-project_react-hw8_nodejs/static/js/333.41cd2cd7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20a45aa1.css",
-    "static/js/main.2016435f.js"
+    "static/css/main.e93c4753.css",
+    "static/js/main.6126a174.js"
   ]
 }
