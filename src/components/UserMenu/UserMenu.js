@@ -15,8 +15,10 @@ export const UserMenu = () => {
 
     return (
         <div className={css.wrapper}>
+            <p className={css.welcome}>Welcome, </p>
             <img className={css.avatar} src={defaultAvatar} alt="" width="32" />
-            <p className={css.userName}><span className={css.welcome}>Welcome, </span> {user.name} ({user.email})</p>
+            {/* <p className={css.userName}><span className={css.welcome}>Welcome, </span> {user.name} ({user.email})</p> */}
+            <p className={css.userName}> {user.name} <span className={css.userEmail}>({user.email})</span></p>
             <button
                 className={css.btnLogout}
                 type="button"

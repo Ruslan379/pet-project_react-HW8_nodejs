@@ -17,6 +17,11 @@
     font-weight: 700;
 }
 
+.userEmail {
+    font-weight: 500;
+    font-size: 80%;
+}
+
 .btnLogout {
     display: inline-block;
     text-decoration: none;
