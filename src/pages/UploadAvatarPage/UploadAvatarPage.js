@@ -28,12 +28,12 @@ export default function UploadAvatarPage() {
     console.log("avatar:", avatar); //!
     console.log("avatar.name:", avatar.name); //!
 
-    const data = new FormData();
+    const formData = new FormData();
     // data.append('avatar', avatar, avatar.name);
-    data.append('avatar', avatar);
-    console.log("data:", data); //!
+    formData.append('avatar', avatar);
+    console.log("formData:", formData); //!
 
-    dispatch(changeAvatar({ data }));
+    dispatch(changeAvatar(formData));
     navigate("/contacts", { replace: true });
   };
 
@@ -68,7 +68,7 @@ export default function UploadAvatarPage() {
             id="inputImage"
             type="file"
             name="image"
-            multiple
+          // multiple
           // required
           />
         </label>
