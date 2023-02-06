@@ -22,10 +22,16 @@ export default function UploadAvatarPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const file = event.target.file.files[0];
-    const formData = new FormData();
-    formData.append('image', file, file.name);
-    console.log("formData;", formData); //!
+    console.log("event.target.image:", event.target.image); //!
+    const avatar = event.target.image.files[0];
+    console.log("avatar:", avatar); //!
+    console.log("avatar.name:", avatar.name); //!
+
+    const data = new FormData();
+    // data.append('avatar', avatar, avatar.name);
+    data.append('avatar', avatar);
+    console.log("data:", data); //!
+
     // dispatch(addContact({ name, phone }));
     navigate("/contacts", { replace: true });
   };
@@ -40,7 +46,7 @@ export default function UploadAvatarPage() {
   //   console.log("image.files[0] ==>", image.files[0]); //!
   //   const data = new FormData();
   //   data.append("image", image.files[0]);
-  //   console.log("data;", data); //!
+  //   console.log("data:", data); //!
   // })
 
 
@@ -60,7 +66,7 @@ export default function UploadAvatarPage() {
             // className={css.FormInput}
             id="inputImage"
             type="file"
-            name="file"
+            name="image"
             multiple
           // required
           />
