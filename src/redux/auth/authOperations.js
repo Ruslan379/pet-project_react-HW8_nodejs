@@ -177,6 +177,39 @@ export const refreshUser = createAsyncThunk(
     }
 );
 
+//! Залогинить пользователя
+export const changeAvatar = createAsyncThunk(
+    'auth/changeAvatar',
+    async (credentials, thunkAPI) => {
+        try {
+            const res = await axios.post('/users/login', credentials);
+            console.log("res.data.token:", res.data.token); //!
+            setAuthHeader(res.data.token);
+            console.log("auth/login --> res.data:", res.data); //!
+            console.log("auth/login --> res.data.user:", res.data.user); //!
+            return res.data;
+        } catch (error) {
+            console.log(error); //!
+
+            if (error.message === "Request failed with status code 400") {
+                toast.error(`Login failed. Enter email and password`, { position: "top-center", autoClose: 2000 });
+                console.log('Ошибка входа. Введите еmail и пароль...'); //!
+                return thunkAPI.rejectWithValue(error.message);
+            };
+            if (error.message === "Request failed with status code 401") {
+                toast.error(`Login failed. Email or password is incorrect`, { position: "top-center", autoClose: 2000 });
+                console.log('Email или пароль неверны. Попробуйте снова...'); //!
+                return thunkAPI.rejectWithValue(error.message);
+            };
+            toast.error(error.message, { position: "top-center", autoClose: 2000 });
+            console.log(error.message); //!
+            // toast.error(`Ошибка запроса: ${error.message === "Request failed with status code 400" ? "Ошибка входа" : error.message}`, { position: "top-center", autoClose: 2000 });
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);
+
+
 
 //? +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   //! --------------Добавленные users -------------------

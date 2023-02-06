@@ -2,16 +2,17 @@
 // import { useState } from 'react';
 // import { useEffect } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
-import { fetchContactsFromMmockapiIo, addContact } from 'redux/contacts/contactsOperations';
+import { changeAvatar } from 'redux/auth/authOperations';
 // import { getUploadContacts } from 'redux/uploadContacts/uploadContactsSelectors';
-import { selectLoading, selectAllContacts, getUploadContacts } from 'redux/contacts/contactsSelectors';
+// import { selectLoading, selectAllContacts, getUploadContacts } from 'redux/contacts/contactsSelectors';
 
-import { Container } from 'components/Container/Container';
-import { Loader } from 'components/Loader/Loader';
-import { UploadContactsList } from 'components/UploadContactsList/UploadContactsList';
+// import { Container } from 'components/Container/Container';
+// import { Loader } from 'components/Loader/Loader';
+// import { UploadContactsList } from 'components/UploadContactsList/UploadContactsList';
 
 import css from './UploadAvatarPage.module.css';
 
@@ -32,7 +33,7 @@ export default function UploadAvatarPage() {
     data.append('avatar', avatar);
     console.log("data:", data); //!
 
-    // dispatch(addContact({ name, phone }));
+    dispatch(changeAvatar({ data }));
     navigate("/contacts", { replace: true });
   };
 
