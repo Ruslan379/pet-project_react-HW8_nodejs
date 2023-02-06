@@ -6,13 +6,13 @@ import { useAuth } from 'hooks';
 // import defaultAvatar from 'icons/default-avatar.png'; //?
 import css from './UserMenu.module.css';
 
-const BASE_URL = 'https://contact-book-backend52.onrender.com/';
+// const BASE_URL = 'https://contact-book-backend52.onrender.com/'; //! так работает только с обновлением аватарки
 
 export const UserMenu = () => {
     const dispatch = useDispatch();
     const { user } = useAuth();
-    // const defaultAvatar = user.avatarURL;
-    const defaultAvatar = `${BASE_URL}${user.avatarURL}`;
+    const defaultAvatar = user.avatarURL;
+    // const defaultAvatar = `${BASE_URL}${user.avatarURL}`; //! так работает только с обновлением аватарки
     console.log("user:", user); //!
     console.log("defaultAvatar:", defaultAvatar); //!
 
