@@ -3,7 +3,8 @@ import {
     register,
     logIn,
     logOut,
-    refreshUser
+    refreshUser,
+    changeAvatar
 } from './authOperations';
 
 
@@ -104,7 +105,29 @@ const authSlice = createSlice({
             state.isRefreshing = false;
             state.token = null; //??
             state.error = payload;
+        },
 
+        //! changeAvatar
+        [changeAvatar.pending](state, { payload }) {
+            // state.user = { name: null, email: null, avatarURL: null };
+            // state.token = null;
+            // state.isLoggedIn = false;
+            // state.isRefreshing = false;
+            // state.error = null;
+        },
+        [changeAvatar.fulfilled](state, { payload }) {
+            console.log("changeAvatar.fulfilled --> payload.user:", payload); //!
+            // state.user = payload.user;
+            // state.token = payload.token;
+            // state.isLoggedIn = true;
+            // state.error = null;
+        },
+        [changeAvatar.rejected](state, { payload }) {
+            // state.user = { name: null, email: null, avatarURL: null };
+            // state.token = null;
+            // state.isLoggedIn = false;
+            // state.isRefreshing = false;
+            // state.error = payload;
         },
     },
 });
