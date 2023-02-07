@@ -184,12 +184,12 @@ export const changeAvatar = createAsyncThunk(
     async (credentials, thunkAPI) => {
         console.log("auth/changeAvatar --> credentials:", credentials); //!
         try {
-            const { data } = await axios.post('/users/avatars', credentials, { headers: { 'Content-Type': 'multipart/form-data' } });
-            console.log("auth/changeAvatar --> data:", data); //!
+            const res = await axios.patch('/users/avatars', credentials, { headers: { 'Content-Type': 'multipart/form-data' } });
+            console.log("auth/changeAvatar --> res:", res); //!
 
             // console.log("auth/login --> res.data:", res.data); //!
             // console.log("auth/login --> res.data.user:", res.data.user); //!
-            return data;
+            return res;
         } catch (error) {
             console.log(error); //!
 
