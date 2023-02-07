@@ -24,13 +24,13 @@ export default function UploadAvatarPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("event.target.image:", event.target.image); //!
-    const avatar = event.target.image.files[0];
+    const avatar = event.target.avatar.files[0];
     console.log("avatar:", avatar); //!
     console.log("avatar.name:", avatar.name); //!
 
     const formData = new FormData();
     // data.append('avatar', avatar, avatar.name);
-    formData.append('image', avatar);
+    formData.append('avatar', avatar);
     console.log("formData:", formData); //!
 
     dispatch(changeAvatar(formData));
@@ -55,7 +55,7 @@ export default function UploadAvatarPage() {
   return (
     <>
       <form
-        id="form"
+        // id="form"
         // className={css.Form}
         onSubmit={handleSubmit}
       // encType="multipart/form-data"
@@ -65,9 +65,9 @@ export default function UploadAvatarPage() {
         >
           <input
             // className={css.FormInput}
-            id="inputImage"
+            // id="inputImage"
             type="file"
-            name="image"
+            name="avatar"
           // multiple
           // required
           />
