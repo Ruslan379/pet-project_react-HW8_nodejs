@@ -30,7 +30,7 @@ export default function UploadAvatarPage() {
 
     const formData = new FormData();
     // data.append('avatar', avatar, avatar.name);
-    formData.append('avatar', avatar);
+    formData.append('image', avatar);
     console.log("formData:", formData); //!
 
     dispatch(changeAvatar(formData));
