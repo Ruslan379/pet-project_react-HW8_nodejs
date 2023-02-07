@@ -110,23 +110,23 @@ const authSlice = createSlice({
         //! changeAvatar
         [changeAvatar.pending](state, { payload }) {
             // state.user = { name: null, email: null, avatarURL: null };
-            // state.token = null;
+            state.user.avatarURL = null;
             // state.isLoggedIn = false;
-            // state.isRefreshing = false;
-            // state.error = null;
+            state.isRefreshing = false;
+            state.error = null;
         },
         [changeAvatar.fulfilled](state, { payload }) {
             console.log("changeAvatar.fulfilled --> payload:", payload); //!
             state.user.avatarURL = payload;
             // state.token = payload.token;
-            // state.isLoggedIn = true;
-            // state.error = null;
+            state.isLoggedIn = true;
+            state.error = null;
         },
         [changeAvatar.rejected](state, { payload }) {
             // state.user = { name: null, email: null, avatarURL: null };
             // state.token = null;
             // state.isLoggedIn = false;
-            // state.isRefreshing = false;
+            state.isRefreshing = false;
             // state.error = payload;
         },
     },
