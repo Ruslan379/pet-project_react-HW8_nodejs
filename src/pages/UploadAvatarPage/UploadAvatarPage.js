@@ -16,14 +16,38 @@ import { changeAvatar } from 'redux/auth/authOperations';
 
 import css from './UploadAvatarPage.module.css';
 
+//!  +++++++++++++++++++ firebase ++++++++++++++++++++++++++++
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAJCkgGuoopUtogXXP5uwOnsJ29-UCECiY",
+  authDomain: "contacts-book-backend.firebaseapp.com",
+  projectId: "contacts-book-backend",
+  storageBucket: "contacts-book-backend.appspot.com",
+  messagingSenderId: "328355692785",
+  appId: "1:328355692785:web:a473dcce1b45a071456950"
+};
+
+//! Initialize Firebase
+const app = initializeApp(firebaseConfig);
+console.log("app:", app);//!
+
+const storage = getStorage(app);
+//!  +++++++++++++++++++ firebase ++++++++++++++++++++++++++++
+
+
+//----------------------------------------------------------------------
 export default function UploadAvatarPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("event.target.image:", event.target.image); //!
+    console.log("event.target.image:", event.target.avatar); //!
     const avatar = event.target.avatar.files[0];
     console.log("avatar:", avatar); //!
     console.log("avatar.name:", avatar.name); //!
@@ -32,6 +56,33 @@ export default function UploadAvatarPage() {
     // data.append('avatar', avatar, avatar.name);
     formData.append('avatar', avatar);
     console.log("formData:", formData); //!
+
+
+    //!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //! Отправка АВАТАР на Storage
+    const avatarNewJimpName = avatar.name;
+
+    async function uploadAvatarDownloadURLfirebaseStorage() {
+      const storageRef = ref(storage, `avatars/${avatarNewJimpName}`);
+      console.log("storageRef:", storageRef); //!
+
+      // const blob = new Blob([formData], { type: 'image/png' });
+      const blob = new Blob(formData, { type: 'image/jpeg' });
+      console.log("blob:", blob); //!
+
+
+      const uploadBytesAvatar = await uploadBytes(storageRef, blob);
+      console.log("uploadBytesAvatar:", uploadBytesAvatar); //!
+
+      //! Получение АБСОЛЮТНОЙ ссылки на на АВАТАР
+      const avatarURL = await getDownloadURL(ref(storage, `avatars/${avatarNewJimpName}`));
+      console.log("АСОЛЮТНЫЙ (ПОЛНЫЙ) путь к новому Jimp-файлу аватара в папке назначения -> avatarURL:", avatarURL); //!;
+
+      return avatarURL;
+    };
+    uploadAvatarDownloadURLfirebaseStorage();
+    //!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
     dispatch(changeAvatar(formData));
     navigate("/contacts", { replace: true });
