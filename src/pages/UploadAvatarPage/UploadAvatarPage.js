@@ -60,22 +60,24 @@ export default function UploadAvatarPage() {
 
     //!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //! Отправка АВАТАР на Storage
-    const avatarNewJimpName = avatar.name;
+    const avatarName = avatar.name;
 
     async function uploadAvatarDownloadURLfirebaseStorage() {
-      const storageRef = ref(storage, `avatars/${avatarNewJimpName}`);
+      const storageRef = ref(storage, `avatars/${avatarName}`);
       console.log("storageRef:", storageRef); //!
 
-      // const blob = new Blob([formData], { type: 'image/png' });
-      const blob = new Blob(formData, { type: 'image/jpeg' });
+      // const blob = new Blob([formData], { type: 'image/png' }); //! так НЕ работает
+      // const blob = new Blob(formData, { type: 'image/jpeg' }); //! так НЕ работает
+      // const blob = await formData.blob(); //! TypeError: formData.blob is not a function
+      const blob = new Blob([avatar], { type: 'image/png' });
       console.log("blob:", blob); //!
 
-
-      const uploadBytesAvatar = await uploadBytes(storageRef, blob);
+      // const uploadBytesAvatar = await uploadBytes(storageRef, blob); //* так тоже работает
+      const uploadBytesAvatar = await uploadBytes(storageRef, avatar);
       console.log("uploadBytesAvatar:", uploadBytesAvatar); //!
 
       //! Получение АБСОЛЮТНОЙ ссылки на на АВАТАР
-      const avatarURL = await getDownloadURL(ref(storage, `avatars/${avatarNewJimpName}`));
+      const avatarURL = await getDownloadURL(ref(storage, `avatars/${avatarName}`));
       console.log("АСОЛЮТНЫЙ (ПОЛНЫЙ) путь к новому Jimp-файлу аватара в папке назначения -> avatarURL:", avatarURL); //!;
 
       return avatarURL;
