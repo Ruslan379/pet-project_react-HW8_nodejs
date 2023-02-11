@@ -187,8 +187,9 @@ export const changeAvatar = createAsyncThunk(
             const { data } = await axios.patch('/users/avatars', credentials, { headers: { 'Content-Type': 'multipart/form-data' } });
             console.log("auth/changeAvatar --> data:", data); //!
             console.log("auth/login --> data.avatarURL:", data.avatarURL); //!
+            console.log("auth/login --> data.avatarURL2:", data.avatarURL2); //!
             // console.log("auth/login --> res.data.user:", res.data.user); //!
-            return data.avatarURL;
+            return data.avatarURL2;
         } catch (error) {
             console.log(error); //!
 
