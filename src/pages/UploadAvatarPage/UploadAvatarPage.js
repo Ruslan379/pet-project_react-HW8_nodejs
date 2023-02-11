@@ -58,7 +58,7 @@ export default function UploadAvatarPage() {
     console.log("formData:", formData); //!
 
 
-    //!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //!++++++++++++++++++++++++++++++++++++ Загрузка ссылки АВАТАРКИ на Firebase Storage без обработки++++++++++++++++++++++++++++++++++++++++++++++
     //! Отправка АВАТАР на Storage
     const avatarName = avatar.name;
 
@@ -77,10 +77,10 @@ export default function UploadAvatarPage() {
       console.log("uploadBytesAvatar:", uploadBytesAvatar); //!
 
       //! Получение АБСОЛЮТНОЙ ссылки на на АВАТАР
-      const avatarURL = await getDownloadURL(ref(storage, `avatars/${avatarName}`));
-      console.log("АСОЛЮТНЫЙ (ПОЛНЫЙ) путь к новому Jimp-файлу аватара в папке назначения -> avatarURL:", avatarURL); //!;
+      const avatarURL2 = await getDownloadURL(ref(storage, `avatars/${avatarName}`));
+      console.log("АСОЛЮТНЫЙ (ПОЛНЫЙ) путь к новому Jimp-файлу аватара в папке назначения -> avatarURL2:", avatarURL2); //!;
 
-      return avatarURL;
+      return avatarURL2;
     };
     uploadAvatarDownloadURLfirebaseStorage();
     //!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -117,8 +117,8 @@ const authSlice = createSlice({
         },
         [changeAvatar.fulfilled](state, { payload }) {
             console.log("changeAvatar.fulfilled --> payload:", payload); //!
-            // state.user.avatarURL = payload;
-            state.user.avatarURL2 = payload;
+            // state.user.avatarURL2 = payload;
+            state.user.avatarURL = payload;
             // state.token = payload.token;
             state.isLoggedIn = true;
             state.error = null;

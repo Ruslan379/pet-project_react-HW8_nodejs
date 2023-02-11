@@ -189,7 +189,7 @@ export const changeAvatar = createAsyncThunk(
             console.log("auth/login --> data.avatarURL:", data.avatarURL); //!
             console.log("auth/login --> data.avatarURL2:", data.avatarURL2); //!
             // console.log("auth/login --> res.data.user:", res.data.user); //!
-            return data.avatarURL2;
+            return data.avatarURL;
         } catch (error) {
             console.log(error); //!
 

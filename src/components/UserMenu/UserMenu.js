@@ -11,8 +11,8 @@ import css from './UserMenu.module.css';
 export const UserMenu = () => {
     const dispatch = useDispatch();
     const { user } = useAuth();
-    // const defaultAvatar = user.avatarURL; //! Загрузка ссылки с Firebase Storage без обработки
-    const defaultAvatar = user.avatarURL2; //! Загрузка ссылки с MоngoDB c обработкой
+    // const defaultAvatar = user.avatarURL2; //! Загрузка ссылки АВАТАРКИ с Firebase Storage без обработки
+    const defaultAvatar = user.avatarURL; //! Загрузка ссылки с АВАТАРКИ MоngoDB c обработкой
     // const defaultAvatar = `${BASE_URL}${user.avatarURL}`; //! так работает только с обновлением аватарки
     console.log("user:", user); //!
     console.log("defaultAvatar:", defaultAvatar); //!
